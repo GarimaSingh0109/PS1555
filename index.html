@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #52796F;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #52796F;
+            color: azure;
+        }
+        tr:hover {
+            background-color: #CAD2C5;
+        }
+        h1{
+            padding: 5px;
+            text-align: center;
+            background-color: #52796F;
+            color: azure;
+        }
+        input{
+            width: 95%;
+            margin-left: 17px;
+            padding: 10px;
+            justify-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Herbs and Their Uses</h1>
+    <input type="text" id="myInput" placeholder="Search...." onkeyup="searchFun()">
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Herb</th>
+                <th>Disease/Condition</th>
+                <th>How to Use</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Turmeric</td>
+                <td>Inflammation, Joint Pain</td>
+                <td>Add 1-2 teaspoons of turmeric powder to warm milk or water and consume once or twice daily. Alternatively, use in cooking or take as a supplement.</td>
+            </tr>
+            <tr>
+                <td>Ginger</td>
+                <td>Nausea, Digestive Issues</td>
+                <td>Prepare ginger tea by boiling sliced ginger in water for 10 minutes. Drink 2-3 times a day. Can also be consumed fresh or added to food.</td>
+            </tr>
+            <tr>
+                <td>Ashwagandha</td>
+                <td>Stress, Anxiety, Fatigue</td>
+                <td>Take 300-500 mg of ashwagandha extract once or twice daily. Can also be added to smoothies or consumed as a tea.</td>
+            </tr>
+            <tr>
+                <td>Neem</td>
+                <td>Skin Disorders, Infections</td>
+                <td>Apply neem oil directly to the affected area or use neem leaves in a bath. Neem supplements can be taken orally as directed.</td>
+            </tr>
+            <tr>
+                <td>Tulsi (Holy Basil)</td>
+                <td>Respiratory Issues, Cough</td>
+                <td>Make a tea using fresh or dried tulsi leaves and drink 2-3 times a day. Tulsi drops can also be added to water or tea.</td>
+            </tr>
+            <tr>
+                <td>Amla (Indian Gooseberry)</td>
+                <td>Immunity Boost, Digestion</td>
+                <td>Consume fresh amla juice daily, or take amla powder mixed with water or honey. Amla can also be eaten raw or as a supplement.</td>
+            </tr>
+            <tr>
+                <td>Fenugreek</td>
+                <td>Diabetes, Digestive Issues</td>
+                <td>Soak fenugreek seeds in water overnight and consume the water on an empty stomach. Use fenugreek powder in cooking or take as a supplement.</td>
+            </tr>
+            <tr>
+                <td>Licorice Root</td>
+                <td>Sore Throat, Respiratory Problems</td>
+                <td>Prepare licorice tea by boiling the root in water for 10-15 minutes. Drink 2-3 times a day. Can also be taken as a supplement.</td>
+            </tr>
+            <tr>
+                <td>Brahmi</td>
+                <td>Memory Enhancement, Anxiety</td>
+                <td>Take 300-500 mg of Brahmi extract once or twice daily. Can also be consumed as a tea or mixed into food.</td>
+            </tr>
+            <tr>
+                <td>Aloe Vera</td>
+                <td>Skin Burns, Digestive Health</td>
+                <td>Apply fresh aloe vera gel directly to the skin or consume aloe vera juice as directed (usually 1-2 tablespoons daily).</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <script>
+        const searchFun = () => {
+            let filter = document.getElementById('myInput').value.toUpperCase()
+            let myTable = document.getElementById('myTable')
+            let tr = myTable.getElementsByTagName('tr')
+            for(var i = 0; i<tr.length;i++){
+                let td = tr[i].getElementsByTagName('td')[0]
+                if(td){
+                    let textvalue = td.textContent || td.innerHTML
+
+                    if(textvalue.toUpperCase().indexOf(filter) > -1){
+                        tr[i].style.display = ""
+                    }else{
+                        tr[i].style.display = "none"
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
